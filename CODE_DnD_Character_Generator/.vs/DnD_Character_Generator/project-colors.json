@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "94df27c8-0397-4471-a4f7-0a9e05ef3da7": {
+      "ProjectGuid": "94df27c8-0397-4471-a4f7-0a9e05ef3da7",
+      "DisplayName": "DnD_Character_Generator",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
