@@ -5,6 +5,11 @@
       "ProjectGuid": "94df27c8-0397-4471-a4f7-0a9e05ef3da7",
       "DisplayName": "DnD_Character_Generator",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1
