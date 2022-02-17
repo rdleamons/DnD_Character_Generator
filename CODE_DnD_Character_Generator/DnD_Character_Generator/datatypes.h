@@ -4,18 +4,6 @@
 
 //definitions for some of the various enums used in the program. the .cpp file also has some corresponding functions to translate the value of those enums into a string for printing purposes.
 
-enum racetype {
-    DRAGONBORN,
-    DWARF,
-    ELF,
-    GNOME,
-    HALFELF,
-    HALFLING,
-    HALFORC,
-    HUMAN,
-    TIEFLING
-};
-
 enum classtype {
     BARBARIAN,
     BARD,
@@ -29,6 +17,18 @@ enum classtype {
     SORCERER,
     WARLOCK,
     WIZARD
+};
+
+enum racetype {
+    DRAGONBORN,
+    DWARF,
+    ELF,
+    GNOME,
+    HALFELF,
+    HALFLING,
+    HALFORC,
+    HUMAN,
+    TIEFLING
 };
 
 enum align {

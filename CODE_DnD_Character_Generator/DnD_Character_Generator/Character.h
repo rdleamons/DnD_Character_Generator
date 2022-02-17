@@ -25,6 +25,20 @@ class Character
         std::string getStrClass();
         std::string getStrRace();
         std::string getStrAlign();
+
+        void setName(std::string);
+        void setClass(classtype);
+        void setRace(racetype);
+        void setAlign(align);
+        void setStr(int);
+        void setInt(int);
+        void setWis(int);
+        void setDex(int);
+        void setCon(int);
+        void setCha(int);
+        void setAC(int);
+        void setInitiative(int);
+
         virtual ~Character();
     protected:
 
