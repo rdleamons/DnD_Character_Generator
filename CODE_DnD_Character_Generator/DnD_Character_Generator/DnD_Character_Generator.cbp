@@ -32,7 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Character.cpp" />
+		<Unit filename="Character.h" />
+		<Unit filename="datatypes.cpp" />
+		<Unit filename="datatypes.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="organizeStats.cpp" />
+		<Unit filename="organizeStats.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
