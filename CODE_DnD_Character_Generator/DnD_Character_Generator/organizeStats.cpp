@@ -7,156 +7,184 @@
 *	Wisdom
 *	Charisma
 * 
+*/
+#include "Character.h"
+#include "diceRoller.hpp"
+//#include "datatypes.h"
 
-switch(race)
+void raceSats(Character user)
 {
+	diceRoller dice;
+
+	// Change stats based on class
+	switch (user.getRace())
+	{
 	case(DRAGONBORN):
-		strength += 2;
-		charisma += 1;
+		user.setStr(user.getStr() + 2);
+		user.setCha(user.getCha() + 1);
+		// user.setSpeed(30);
 		break;
 	case(DWARF):
-		constitution += 2;
+		user.setCon(user.getCon() + 2);
+		// user.setSpeed(25);
 		break;
 	case(ELF):
-		dexterity += 2;
+		user.setDex(user.getDex() + 2);
+		// user.setSpeed(30);
 		break;
 	case(GNOME):
-		intelligence += 2;
+		user.setInt(user.getInt() + 2);
+		// user.setSpeed(25);
 		break;
 	case(HALFELF):
-		charisma += 2;
-		statsroll[0] += 1;
-		statsroll[1] += 1;
+		user.setCha(user.getCha() + 2);
+		// statsroll[0] += 1;
+		// statsroll[1] += 1;
+		// user.setSpeed(30);
 		break;
 	case(HALFLING):
-		dexterity += 2;
+		user.setDex(user.getDex() + 2);
+		// user.setSpeed(25);
 	case(HALFORC):
-		strength += 2;
-		constitution +=1;
+		user.setStr(user.getStr() + 2);
+		user.setCon(user.getCon() + 1);
+		// user.setSpeed(30);
 		break;
 	case(HUMAN):
-		strength += 1;
-		dexterity += 1;
-		constitution += 1;
-		intelligence += 1;
-		wisdom += 1;
-		charisma += 1;
+		user.setStr(user.getStr() + 1);
+		user.setCon(user.getCon() + 1);
+		user.setDex(user.getDex() + 1);
+		user.setCha(user.getCha() + 1);
+		user.setInt(user.getInt() + 1);
+		user.setInt(user.getInt() + 1);
+		// user.setSpeed(30);
 	case(TIEFLING):
-		charsima += 2;
-		intelligence += 1;
+		user.setCha(user.getCha() + 2);
+		user.setInt(user.getInt() + 1);
+		// user.setSpeed(30);
+	}
+
+
+	// Organize stats based on class
+	switch (user.getClass())
+	{
+	case(BARBARIAN):
+		user.setStr(dice.getStats());
+		user.setCon();
+		user.setDex();
+		user.setWis();
+		user.setCha();
+		user.setInt();
+		break;
+
+	case(BARD):
+		user.setCha();
+		user.setDex();
+		user.setCon();
+		user.setWis();
+		user.setInt();
+		user.setStr();
+		break;
+
+	case(CLERIC):
+		user.setWis();
+		user.setCha();
+		user.setCon();
+		user.setStr();
+		user.setInt();
+		user.setDex();
+		break;
+
+	case(DRUID):
+		user.setWis();
+		user.setInt();
+		user.setCon();
+		user.setDex();
+		user.setStr();
+		user.setCha();
+		break;
+
+	case(FIGHTER):
+		user.setStr();
+		user.setDex();
+		user.setCon();
+		user.setCha();
+		user.setInt();
+		user.setWis();
+		break;
+
+	case(MONK):
+		user.setDex();
+		user.setWis();
+		user.setCon();
+		user.setStr();
+		user.setCha();
+		user.setInt();
+		break;
+
+	case(PALADIN):
+		user.setStr();
+		user.setCha();
+		user.setCon();
+		user.setWis();
+		user.setDex();
+		user.setInt();
+		break;
+
+	case(RANGER):
+		user.setDex();
+		user.setWis();
+		user.setCon();
+		user.setStr();
+		user.setInt();
+		user.setCha();
+		break;
+
+	case(ROGUE):
+		user.setDex();
+		user.setCha();
+		user.setCon();
+		user.setInt();
+		user.setStr();
+		user.setWis();
+		break;
+
+	case(SORCERER):
+		user.setCha();
+		user.setCon();
+		user.setInt();
+		user.setWis();
+		user.setStr();
+		user.setDex();
+		break;
+
+	case(WARLOCK):
+		user.setCha();
+		user.setWis();
+		user.setCon();
+		user.setDex();
+		user.setInt();
+		user.setStr();
+		break;
+
+	case(WIZARD):
+		user.setInt();
+		user.setWis();
+		user.setCon();
+		user.setCha();
+		user.setDex();
+		user.setStr();
+		break;
+	}
+
+	// Set armor class
+	// user.setAC(10 + dexModifier) 
 }
 
-switch(class)
+void classStats(Character user)
 {
-Character.classtype
-case(BARBIAN):
-	npc.strength = statsRoll.stats[0];
-	npc.constitution = statsRoll.stats[1];
-	npc.dexterity = statsRoll.stats[2];
-	npc.wisdom = statsRoll.stats[3];
-	npc.charisma = statsRoll.stats[4];
-	npc.intelligence = statsRoll.stats[5];
-	break;
+	
 
-case(BARD):
-	npc.charisma = statsRoll.stats[0];
-	npc.dexterity = statsRoll.stats[1];
-	npc.constituiton = statsRoll.stats[2];
-	npc.wisdom = statsRoll.stats[3];
-	npc.intelligence = statsRoll.stats[4];
-	npc.strength = statsRoll.stats[5];
-	break;
-
-case(CLERIC):
-	npc.wisdom = statsRoll.stats[0];
-	npc.charisma = statsRoll.stats[1];
-	npc.constituiton = statsRoll.stats[2];
-	npc.stength = statsRoll.stats[3];
-	npc.intelligence = statsRoll.stats[4];
-	npc.dexterity = statsRoll.stats[5];
-	break;
-
-case(DRUID):
-	npc.wisdom = statsRoll.stats[0];
-	npc.intelligence = statsRoll.stats[1];
-	npc.constituiton = statsRoll.stats[2];
-	npc.dexterity = statsRoll.stats[3];
-	npc.strength = statsRoll.stats[4];
-	npc.charisma = statsRoll.stats[5];
-	break;
-
-case(FIGHTER):
-	npc.strength = statsRoll.stats[0];
-	npc.dexterity = statsRoll.stats[1];
-	npc.constitution = statsRoll.stats[2];
-	npc.charisma = statsRoll.stats[3];
-	npc.intelligence = statsRoll.stats[4];
-	npc.wisdom = statsRoll.stats[5];
-	break;
-
-case(MONK):
-	npc.dexterity = statsRoll.stats[0];
-	npc.wisdom = statsRoll.stats[1];
-	npc.constitution = statsRoll.stats[2];
-	npc.strength = statsRoll.stats[3];
-	npc.charisma = statsRoll.stats[4];
-	npc.intelligence = statsRoll.stats[5];
-	break;
-
-case(PALADIN):
-	npc.strength = statsRoll.stats[0];
-	npc.charisma = statsRoll.stats[1];
-	npc.constitution = statsRoll.stats[2];
-	npc.wisdom = statsRoll.stats[3];
-	npc.dexterity = statsRoll.stats[4];
-	npc.intelligence = statsRoll.stats[5];
-	break;
-
-case(RANGER):
-	npc.dexterity = statsRoll.stats[0];
-	npc.wisdom = statsRoll.stats[1];
-	npc.constitution = statsRoll.stats[2];
-	npc.strength = statsRoll.stats[3];
-	npc.intelligence = statsRoll.stats[4];
-	npc.charisma = statsRoll.stats[5];
-	break;
-
-case(ROGUE):
-	npc.dexterity = statsRoll.stats[0];
-	npc.charisma = statsRoll.stats[1];
-	npc.constitution = statsRoll.stats[2];
-	npc.intelligence = statsRoll.stats[3];
-	npc.strength = statsRoll.stats[4];
-	npc.wisdom = statsRoll.stats[5];
-	break;
-
-case(SORCERER):
-	npc.charisma = statsRoll.stats[0];
-	npc.constitution = statsRoll.stats[1];
-	npc.intelligence = statsRoll.stats[2];
-	npc.wisdom = statsRoll.stats[3];
-	npc.strength = statsRoll.stats[4];
-	npc.dexterity = statsRoll.stats[5];
-	break;
-
-case(WARLOCK):
-	npc.charisma = statsRoll.stats[0];
-	npc.wisdom = statsRoll.stats[1];
-	npc.constitution = statsRoll.stats[2];
-	npc.dexterity = statsRoll.stats[3];
-	npc.intelligence = statsRoll.stats[4];
-	npc.strength = statsRoll.stats[5];
-	break;
-
-case(WIZARD):
-	npc.intelligence = statsRoll.stats[0];
-	npc.wisdom = statsRoll.stats[1];
-	npc.constitution = statsRoll.stats[2];
-	npc.intellifence = statsRoll.stats[3];
-	npc.dexterity = statsRoll.stats[4];
-	npc.strength = statsRoll.stats[5];
-	break;
 }
 
 
-*/
