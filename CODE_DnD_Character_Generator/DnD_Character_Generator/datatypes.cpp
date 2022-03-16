@@ -1,4 +1,4 @@
-#include "datatypes.h"
+#include "datatypes.hpp"
 
 std::string strRace(racetype inRace)
 {

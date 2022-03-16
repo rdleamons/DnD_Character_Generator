@@ -1,4 +1,4 @@
-#include <iostream>
+#pragma once
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
@@ -6,12 +6,11 @@
 
 class diceRoller
 {
-  public: 
+public:
     diceRoller();
     ~diceRoller();
-    std::vector<int> getStats();
 
-    std::vector<int> statv = {};
+    std::vector<int> statv;
 
     int d20();
     int d12();
@@ -19,6 +18,7 @@ class diceRoller
     int d8();
     int d6();
     int d4();
-    void statsRoll();
 
-}; // end of diceRoller class
+    void statsRoll();
+    int getStats(int index);
+};

@@ -1,13 +1,6 @@
 #include "diceRoller.hpp"
 
-diceRoller rollStats;
-
 diceRoller::diceRoller()
-{
-  
-}
-
-diceRoller::~diceRoller()
 {
   
 }
@@ -66,15 +59,11 @@ int diceRoller::d12()
   return roll;
 }
 
-// calculates and sorts your base stats (dex, wis, str, etc.)
-// but does not label them (yet idk if we'll do that here)
 void diceRoller::statsRoll()
 {
   std::vector<int> v = {};
-  std::vector<int> statv = {};
 
-  // rolling 4 d6 6 times
-  // then arranging the outcomes in descending order
+  // rolling 4 d6 6 times then arranging the outcomes in descending order
   srand(time(NULL));
   for(int i = 0; i < 6; i++)
   {
@@ -86,10 +75,8 @@ void diceRoller::statsRoll()
       v.push_back(d6());
     }
 
-    // sorting the vector in descending order
-    // then popping the smallest one
+    // sorting the vector in descending order then popping the smallest one
     sort(v.begin(), v.end(), std::greater<>());
-    // v.pop_back();
 
     // adding the d6 together
     for(int i = 0; i < 3; i++)
@@ -100,16 +87,17 @@ void diceRoller::statsRoll()
     // adding the stat outcome to a different vector
     statv.push_back(total);
   }
+
   // sorting the new vector in descending order
   sort(statv.begin(), statv.end(), std::greater<>());
+}
 
-  // this is the output until the stats can be labled properly
-  std::cout << "Your stats are: " << std::endl;
-  for(int i = 0; i < 6; i++)
-    {
-      std::cout << statv[i] << std::endl;
-    }
+int diceRoller::getStats(int index)
+{
+    return statv[index];
+}
 
-  vector<int> getStats(int index)
-      return statv[index];
+diceRoller::~diceRoller()
+{
+
 }

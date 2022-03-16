@@ -1,20 +1,121 @@
-/*
-* stats: 
-*	Strength
-*	Dexterity
-*	Constitution
-*	Intelligence
-*	Wisdom
-*	Charisma
-* 
-*/
-#include "Character.h"
-#include "diceRoller.hpp"
-//#include "datatypes.h"
+#include "organizeStats.hpp"
+#include <iostream>
 
-void raceSats(Character user)
+void statsOrganizer::updateStats(Character user, diceRoller dice)
 {
-	diceRoller dice;
+	// Organize stats based on class
+	switch (user.getClass())
+	{
+	case(BARBARIAN):
+		user.setStr(dice.getStats(0));
+		user.setCon(dice.getStats(1));
+		user.setDex(dice.getStats(2));
+		user.setWis(dice.getStats(3));
+		user.setCha(dice.getStats(4));
+		user.setInt(dice.getStats(5));
+		break;
+
+	case(BARD):
+		user.setCha(dice.getStats(0));
+		user.setDex(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setWis(dice.getStats(3));
+		user.setInt(dice.getStats(4));
+		user.setStr(dice.getStats(5));
+		break;
+
+	case(CLERIC):
+		user.setWis(dice.getStats(0));
+		user.setCha(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setStr(dice.getStats(3));
+		user.setInt(dice.getStats(4));
+		user.setDex(dice.getStats(5));
+		break;
+
+	case(DRUID):
+		user.setWis(dice.getStats(0));
+		user.setInt(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setDex(dice.getStats(3));
+		user.setStr(dice.getStats(4));
+		user.setCha(dice.getStats(5));
+		break;
+
+	case(FIGHTER):
+		user.setStr(dice.getStats(0));
+		user.setDex(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setCha(dice.getStats(3));
+		user.setInt(dice.getStats(4));
+		user.setWis(dice.getStats(5));
+		break;
+
+	case(MONK):
+		user.setDex(dice.getStats(0));
+		user.setWis(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setStr(dice.getStats(3));
+		user.setCha(dice.getStats(4));
+		user.setInt(dice.getStats(5));
+		break;
+
+	case(PALADIN):
+		user.setStr(dice.getStats(0));
+		user.setCha(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setWis(dice.getStats(3));
+		user.setDex(dice.getStats(4));
+		user.setInt(dice.getStats(5));
+		break;
+
+	case(RANGER):
+		user.setDex(dice.getStats(0));
+		user.setWis(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setStr(dice.getStats(3));
+		user.setInt(dice.getStats(4));
+		user.setCha(dice.getStats(5));
+		break;
+
+	case(ROGUE):
+		user.setDex(dice.getStats(0));
+		user.setCha(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setInt(dice.getStats(3));
+		user.setStr(dice.getStats(4));
+		user.setWis(dice.getStats(5));
+		break;
+
+	case(SORCERER):
+		user.setCha(dice.getStats(0));
+		user.setCon(dice.getStats(1));
+		user.setInt(dice.getStats(2));
+		user.setWis(dice.getStats(3));
+		user.setStr(dice.getStats(4));
+		user.setDex(dice.getStats(5));
+		break;
+
+	case(WARLOCK):
+		user.setCha(dice.getStats(0));
+		user.setWis(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setDex(dice.getStats(3));
+		user.setInt(dice.getStats(4));
+		user.setStr(dice.getStats(5));
+		break;
+
+	case(WIZARD):
+		user.setInt(dice.getStats(0));
+		user.setWis(dice.getStats(1));
+		user.setCon(dice.getStats(2));
+		user.setCha(dice.getStats(3));
+		user.setDex(dice.getStats(4));
+		user.setStr(dice.getStats(5));
+		break;
+	}
+
+
 
 	// Change stats based on class
 	switch (user.getRace())
@@ -64,127 +165,9 @@ void raceSats(Character user)
 		// user.setSpeed(30);
 	}
 
-
-	// Organize stats based on class
-	switch (user.getClass())
-	{
-	case(BARBARIAN):
-		user.setStr(dice.getStats());
-		user.setCon();
-		user.setDex();
-		user.setWis();
-		user.setCha();
-		user.setInt();
-		break;
-
-	case(BARD):
-		user.setCha();
-		user.setDex();
-		user.setCon();
-		user.setWis();
-		user.setInt();
-		user.setStr();
-		break;
-
-	case(CLERIC):
-		user.setWis();
-		user.setCha();
-		user.setCon();
-		user.setStr();
-		user.setInt();
-		user.setDex();
-		break;
-
-	case(DRUID):
-		user.setWis();
-		user.setInt();
-		user.setCon();
-		user.setDex();
-		user.setStr();
-		user.setCha();
-		break;
-
-	case(FIGHTER):
-		user.setStr();
-		user.setDex();
-		user.setCon();
-		user.setCha();
-		user.setInt();
-		user.setWis();
-		break;
-
-	case(MONK):
-		user.setDex();
-		user.setWis();
-		user.setCon();
-		user.setStr();
-		user.setCha();
-		user.setInt();
-		break;
-
-	case(PALADIN):
-		user.setStr();
-		user.setCha();
-		user.setCon();
-		user.setWis();
-		user.setDex();
-		user.setInt();
-		break;
-
-	case(RANGER):
-		user.setDex();
-		user.setWis();
-		user.setCon();
-		user.setStr();
-		user.setInt();
-		user.setCha();
-		break;
-
-	case(ROGUE):
-		user.setDex();
-		user.setCha();
-		user.setCon();
-		user.setInt();
-		user.setStr();
-		user.setWis();
-		break;
-
-	case(SORCERER):
-		user.setCha();
-		user.setCon();
-		user.setInt();
-		user.setWis();
-		user.setStr();
-		user.setDex();
-		break;
-
-	case(WARLOCK):
-		user.setCha();
-		user.setWis();
-		user.setCon();
-		user.setDex();
-		user.setInt();
-		user.setStr();
-		break;
-
-	case(WIZARD):
-		user.setInt();
-		user.setWis();
-		user.setCon();
-		user.setCha();
-		user.setDex();
-		user.setStr();
-		break;
-	}
-
 	// Set armor class
 	// user.setAC(10 + dexModifier) 
 }
 
-void classStats(Character user)
-{
-	
-
-}
 
 

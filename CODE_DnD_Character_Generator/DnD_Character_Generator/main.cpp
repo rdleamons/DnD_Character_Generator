@@ -1,16 +1,20 @@
 #include <iostream>
 #include <string>
-#include "Character.h"
-#include "datatypes.h"
+#include "Character.hpp"
+#include "datatypes.hpp"
+#include "diceRoller.hpp"
+#include "organizeStats.hpp"
 
 int main()
 {
     Character user;
+    diceRoller dice;
+    statsOrganizer statsOrg;
     std::string inName;
     bool valid;
     int input;
 
-
+    // Set character name
     std::cout<<"Name?\n?>";
     std::getline(std::cin,inName);
     while(inName == ""){
@@ -19,6 +23,7 @@ int main()
     }
     user.setName(inName);
 
+    // Set character class
     valid=0;
     do{
         std::cout<<"Choose your class:\n"
@@ -44,6 +49,7 @@ int main()
     }while(valid==0);
     user.setClass(classtype(input-1));
 
+    // Set character class
     valid=0;
     do{
         std::cout<<"Choose your race:\n"
@@ -66,6 +72,7 @@ int main()
     }while(valid==0);
     user.setRace(racetype(input-1));
 
+    // Set alignment
     valid=0;
     do{
         std::cout<<"Choose your alignment:\n"
@@ -82,6 +89,11 @@ int main()
     }while(valid==0);
     user.setAlign(align(input-1));
 
+    dice.statsRoll();
+
+    statsOrg.updateStats(user, dice);
+
+    /*
     std::cout<<"Enter your stats:\n";
     std::cout<<"STR\n?>";
     std::cin>>input;
@@ -107,7 +119,7 @@ int main()
     std::cout<<"Initiative\n?>";
     std::cin>>input;
     user.setInitiative(input);
-
+    */
 
     std::cout<<"Name:\t\t"<<user.getName()<<'\n'
         <<"Class:\t\t"<<user.getStrClass()<<'\n'
@@ -121,5 +133,6 @@ int main()
         <<"Charisma:\t"<<user.getCha()<<'\n'
         <<"Armor Class:\t"<<user.getAC()<<'\n'
         <<"Initiative:\t"<<user.getInitiative()<<'\n';
+
     return 0;
 }
