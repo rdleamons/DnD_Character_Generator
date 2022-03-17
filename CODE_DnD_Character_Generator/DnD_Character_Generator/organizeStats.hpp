@@ -5,5 +5,5 @@
 class statsOrganizer
 {
 public:
-	void updateStats(Character user, diceRoller dice);
+	void updateStats(Character &user, diceRoller &dice);
 };

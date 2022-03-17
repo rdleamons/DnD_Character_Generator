@@ -1,12 +1,11 @@
 #include "organizeStats.hpp"
 #include <iostream>
 
-void statsOrganizer::updateStats(Character user, diceRoller dice)
+void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 {
-	// Organize stats based on class
 	switch (user.getClass())
 	{
-	case(BARBARIAN):
+	case BARBARIAN:
 		user.setStr(dice.getStats(0));
 		user.setCon(dice.getStats(1));
 		user.setDex(dice.getStats(2));
@@ -14,8 +13,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setCha(dice.getStats(4));
 		user.setInt(dice.getStats(5));
 		break;
-
-	case(BARD):
+	case BARD:
 		user.setCha(dice.getStats(0));
 		user.setDex(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -23,8 +21,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setInt(dice.getStats(4));
 		user.setStr(dice.getStats(5));
 		break;
-
-	case(CLERIC):
+	case CLERIC:
 		user.setWis(dice.getStats(0));
 		user.setCha(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -32,8 +29,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setInt(dice.getStats(4));
 		user.setDex(dice.getStats(5));
 		break;
-
-	case(DRUID):
+	case DRUID:
 		user.setWis(dice.getStats(0));
 		user.setInt(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -41,8 +37,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setStr(dice.getStats(4));
 		user.setCha(dice.getStats(5));
 		break;
-
-	case(FIGHTER):
+	case FIGHTER:
 		user.setStr(dice.getStats(0));
 		user.setDex(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -50,8 +45,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setInt(dice.getStats(4));
 		user.setWis(dice.getStats(5));
 		break;
-
-	case(MONK):
+	case MONK:
 		user.setDex(dice.getStats(0));
 		user.setWis(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -59,8 +53,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setCha(dice.getStats(4));
 		user.setInt(dice.getStats(5));
 		break;
-
-	case(PALADIN):
+	case PALADIN:
 		user.setStr(dice.getStats(0));
 		user.setCha(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -68,8 +61,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setDex(dice.getStats(4));
 		user.setInt(dice.getStats(5));
 		break;
-
-	case(RANGER):
+	case RANGER:
 		user.setDex(dice.getStats(0));
 		user.setWis(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -77,8 +69,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setInt(dice.getStats(4));
 		user.setCha(dice.getStats(5));
 		break;
-
-	case(ROGUE):
+	case ROGUE:
 		user.setDex(dice.getStats(0));
 		user.setCha(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -86,8 +77,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setStr(dice.getStats(4));
 		user.setWis(dice.getStats(5));
 		break;
-
-	case(SORCERER):
+	case SORCERER:
 		user.setCha(dice.getStats(0));
 		user.setCon(dice.getStats(1));
 		user.setInt(dice.getStats(2));
@@ -95,8 +85,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setStr(dice.getStats(4));
 		user.setDex(dice.getStats(5));
 		break;
-
-	case(WARLOCK):
+	case WARLOCK:
 		user.setCha(dice.getStats(0));
 		user.setWis(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -104,8 +93,7 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setInt(dice.getStats(4));
 		user.setStr(dice.getStats(5));
 		break;
-
-	case(WIZARD):
+	case WIZARD:
 		user.setInt(dice.getStats(0));
 		user.setWis(dice.getStats(1));
 		user.setCon(dice.getStats(2));
@@ -113,8 +101,15 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		user.setDex(dice.getStats(4));
 		user.setStr(dice.getStats(5));
 		break;
+	default:
+		user.setInt(1);
+		user.setWis(1);
+		user.setCon(1);
+		user.setCha(1);
+		user.setDex(1);
+		user.setStr(1);
+		break;
 	}
-
 
 
 	// Change stats based on class
@@ -165,9 +160,6 @@ void statsOrganizer::updateStats(Character user, diceRoller dice)
 		// user.setSpeed(30);
 	}
 
-	// Set armor class
-	// user.setAC(10 + dexModifier) 
+		// Set armor class
+		// user.setAC(10 + dexModifier) 
 }
-
-
-

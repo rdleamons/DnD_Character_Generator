@@ -34,7 +34,6 @@ Character::Character(std::string newName,classtype newClass,racetype newRace,ali
 }
 
 //getters
-std::string Character::getName(){return charName;}
 classtype Character::getClass(){return charClass;}
 racetype Character::getRace(){return charRace;}
 align Character::getAlign(){return charAlign;}
@@ -47,6 +46,7 @@ int Character::getCha(){return charCha;}
 int Character::getAC(){return charAC;}
 int Character::getInitiative(){return charInitiative;}
 
+std::string Character::getName() { return charName; }
 std::string Character::getStrClass(){return strClass(charClass);}
 std::string Character::getStrRace(){return strRace(charRace);}
 std::string Character::getStrAlign(){return strAlign(charAlign);}

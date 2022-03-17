@@ -26,7 +26,7 @@ int main()
     // Set character class
     valid=0;
     do{
-        std::cout<<"Choose your class:\n"
+        std::cout<<"\nChoose your class:\n"
             <<"1) BARBARIAN\n"
             <<"2) BARD\n"
             <<"3) CLERIC\n"
@@ -52,7 +52,7 @@ int main()
     // Set character class
     valid=0;
     do{
-        std::cout<<"Choose your race:\n"
+        std::cout<<"\nChoose your race:\n"
             <<"1) DRAGONBORN\n"
             <<"2) DWARF\n"
             <<"3) ELF\n"
@@ -75,7 +75,7 @@ int main()
     // Set alignment
     valid=0;
     do{
-        std::cout<<"Choose your alignment:\n"
+        std::cout<<"\nChoose your alignment:\n"
             <<"1) LAWFUL GOOD    | 2) NEUTRAL GOOD | 3) CHAOTIC GOOD\n"
             <<"4) LAWFUL NEUTRAL | 5) TRUE NEUTRAL | 6) CHAOTIC NEUTRAL\n"
             <<"7) LAWFUL EVIL    | 8) NEUTRAL EVIL | 9) CHAOTIC EVIL\n"
@@ -91,48 +91,24 @@ int main()
 
     dice.statsRoll();
 
-    statsOrg.updateStats(user, dice);
+	statsOrg.updateStats(user, dice);
 
-    /*
-    std::cout<<"Enter your stats:\n";
-    std::cout<<"STR\n?>";
-    std::cin>>input;
-    user.setStr(input);
-    std::cout<<"INT\n?>";
-    std::cin>>input;
-    user.setInt(input);
-    std::cout<<"WIS\n?>";
-    std::cin>>input;
-    user.setWis(input);
-    std::cout<<"DEX\n?>";
-    std::cin>>input;
-    user.setDex(input);
-    std::cout<<"CON\n?>";
-    std::cin>>input;
-    user.setCon(input);
-    std::cout<<"CHA\n?>";
-    std::cin>>input;
-    user.setCha(input);
-    std::cout<<"AC\n?>";
-    std::cin>>input;
-    user.setAC(input);
-    std::cout<<"Initiative\n?>";
-    std::cin>>input;
-    user.setInitiative(input);
-    */
 
-    std::cout<<"Name:\t\t"<<user.getName()<<'\n'
-        <<"Class:\t\t"<<user.getStrClass()<<'\n'
-        <<"Race:\t\t"<<user.getStrRace()<<'\n'
-        <<"Alignment:\t"<<user.getStrAlign()<<'\n'
-        <<"Strength:\t"<<user.getStr()<<'\n'
-        <<"Intelligence:\t"<<user.getInt()<<'\n'
-        <<"Wisdom:\t\t"<<user.getWis()<<'\n'
-        <<"Dexterity:\t"<<user.getDex()<<'\n'
-        <<"Constitution:\t"<<user.getCon()<<'\n'
-        <<"Charisma:\t"<<user.getCha()<<'\n'
-        <<"Armor Class:\t"<<user.getAC()<<'\n'
-        <<"Initiative:\t"<<user.getInitiative()<<'\n';
+    std::cout << "\n" 
+        << "Name:\t\t" << user.getName() << '\n'
+        << "Class:\t\t" << user.getStrClass() << '\n'
+        << "Race:\t\t" << user.getStrRace() << '\n'
+        << "Alignment:\t" << user.getStrAlign() << '\n'
+        << "Strength:\t" << user.getStr() << '\n'
+        << "Intelligence:\t" << user.getInt() << '\n'
+        << "Wisdom:\t\t" << user.getWis() << '\n'
+        << "Dexterity:\t" << user.getDex() << '\n'
+        << "Constitution:\t" << user.getCon() << '\n'
+        << "Charisma:\t" << user.getCha() << '\n';
+
+        //<<"Armor Class:\t"<<user.getAC()<<'\n'
+        //<<"Initiative:\t"<<user.getInitiative()<<'\n';
 
     return 0;
 }
+

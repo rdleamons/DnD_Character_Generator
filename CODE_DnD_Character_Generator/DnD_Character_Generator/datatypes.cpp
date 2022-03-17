@@ -117,6 +117,6 @@ std::string strAlign(align inAlign)
             break;
         default:
             ret="INVALID";
-        return ret;
     }
+    return ret;
 }
