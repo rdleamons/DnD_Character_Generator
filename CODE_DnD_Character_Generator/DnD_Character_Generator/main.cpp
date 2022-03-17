@@ -5,6 +5,26 @@
 #include "diceRoller.hpp"
 #include "organizeStats.hpp"
 
+void printCharSheet(Character &user)
+{
+    std::cout << "\n"
+        << "Name:\t\t" << user.getName() << '\n'
+        << "Class:\t\t" << user.getStrClass() << '\n'
+        << "Race:\t\t" << user.getStrRace() << '\n'
+        << "Alignment:\t" << user.getStrAlign() << '\n'
+        << "Speed: \t\t" << user.getSpeed() << '\n'
+        << "Hit Points: \t" << user.getHP() << '\n' << std::endl 
+
+        << "Strength:\t" << user.getStr() << '\n'
+        << "Intelligence:\t" << user.getInt() << '\n'
+        << "Wisdom:\t\t" << user.getWis() << '\n'
+        << "Dexterity:\t" << user.getDex() << '\n'
+        << "Constitution:\t" << user.getCon() << '\n'
+        << "Charisma:\t" << user.getCha() << '\n'
+        <<"Armor Class:\t"<<user.getAC()<<'\n'
+        <<"Initiative:\t"<<user.getInitiative()<<'\n';
+}
+
 int main()
 {
     Character user;
@@ -13,32 +33,33 @@ int main()
     std::string inName;
     bool valid;
     int input;
+    char rerollInput;
 
     // Set character name
-    std::cout<<"Name?\n?>";
-    std::getline(std::cin,inName);
+    std::cout<<"What's your character's name?\n?>";
+    std::cin >> inName;
     while(inName == ""){
         std::cout<<"?>";
-        std::getline(std::cin,inName);
+        std::cin >> inName;
     }
     user.setName(inName);
 
     // Set character class
     valid=0;
     do{
-        std::cout<<"\nChoose your class:\n"
-            <<"1) BARBARIAN\n"
-            <<"2) BARD\n"
-            <<"3) CLERIC\n"
-            <<"4) DRUID\n"
-            <<"5) FIGHTER\n"
-            <<"6) MONK\n"
-            <<"7) PALADIN\n"
-            <<"8) RANGER\n"
-            <<"9) ROGUE\n"
-            <<"10) SORCERER\n"
-            <<"11) WARLOCK\n"
-            <<"12) WIZARD\n"
+        std::cout<<"\nWhat's " << user.getName() << "'s class? Enter the corresponding number:\n"
+            <<"1) Barbairian\n"
+            <<"2) Bard\n"
+            <<"3) Cleric\n"
+            <<"4) Druid\n"
+            <<"5) Fighter\n"
+            <<"6) Monk\n"
+            <<"7) Paladin\n"
+            <<"8) Ranger\n"
+            <<"9) Rogue\n"
+            <<"10) Sorcerer\n"
+            <<"11) Warlock\n"
+            <<"12) Wizard\n"
             <<"?>";
         std::cin>>input;
         if(input >= 1 && input <= 12){
@@ -52,22 +73,22 @@ int main()
     // Set character class
     valid=0;
     do{
-        std::cout<<"\nChoose your race:\n"
-            <<"1) DRAGONBORN\n"
-            <<"2) DWARF\n"
-            <<"3) ELF\n"
-            <<"4) GNOME\n"
-            <<"5) HALFELF\n"
-            <<"6) HALFLING\n"
-            <<"7) HALFORC\n"
-            <<"8) HUMAN\n"
-            <<"9) TIEFLING\n"
+        std::cout<<"\nWhat's " << user.getName() << "'s race? Enter the corresponding number:\n"
+            <<"1) Dragonborn\n"
+            <<"2) Dwarf\n"
+            <<"3) Elf\n"
+            <<"4) Gnome\n"
+            <<"5) Half-Elf\n"
+            <<"6) Halfling\n"
+            <<"7) Half-Orc\n"
+            <<"8) Human\n"
+            <<"9) Tiefling\n"
             <<"?>";
         std::cin>>input;
         if(input >= 1 && input <= 9){
             valid=1;
         }else{
-            std::cout<<"Invalid choice! ";
+            std::cout<<"Invalid choice!";
         }
     }while(valid==0);
     user.setRace(racetype(input-1));
@@ -75,40 +96,46 @@ int main()
     // Set alignment
     valid=0;
     do{
-        std::cout<<"\nChoose your alignment:\n"
-            <<"1) LAWFUL GOOD    | 2) NEUTRAL GOOD | 3) CHAOTIC GOOD\n"
-            <<"4) LAWFUL NEUTRAL | 5) TRUE NEUTRAL | 6) CHAOTIC NEUTRAL\n"
-            <<"7) LAWFUL EVIL    | 8) NEUTRAL EVIL | 9) CHAOTIC EVIL\n"
+        std::cout<<"\nWhat's " << user.getName() << "'s alignment?\n"
+            <<"1) Lawful Good    | 2) Neutral Good | 3) Chaotic Good \n"
+            <<"4) Lawful Neutral | 5) True Neutral | 6) Chaotic Neutral \n"
+            <<"7) Lawful Evil    | 8) Neutral Evil | 9) Chaotic Evil \n"
             <<"?>";
         std::cin>>input;
         if(input >= 1 && input <= 9){
             valid=1;
         }else{
-            std::cout<<"Invalid choice! ";
+            std::cout<<"Invalid choice!";
         }
     }while(valid==0);
     user.setAlign(align(input-1));
 
+    // Roll stats, organize them, and update based on class/race
     dice.statsRoll();
-
 	statsOrg.updateStats(user, dice);
 
+    // Print character sheet
+    printCharSheet(user);
 
-    std::cout << "\n" 
-        << "Name:\t\t" << user.getName() << '\n'
-        << "Class:\t\t" << user.getStrClass() << '\n'
-        << "Race:\t\t" << user.getStrRace() << '\n'
-        << "Alignment:\t" << user.getStrAlign() << '\n'
-        << "Strength:\t" << user.getStr() << '\n'
-        << "Intelligence:\t" << user.getInt() << '\n'
-        << "Wisdom:\t\t" << user.getWis() << '\n'
-        << "Dexterity:\t" << user.getDex() << '\n'
-        << "Constitution:\t" << user.getCon() << '\n'
-        << "Charisma:\t" << user.getCha() << '\n';
+    // Prompt user to reroll stats
+    std::cout << "\nReroll stats? y/n \n";
+    std::cin >> rerollInput;
 
-        //<<"Armor Class:\t"<<user.getAC()<<'\n'
-        //<<"Initiative:\t"<<user.getInitiative()<<'\n';
+    if (rerollInput == 'y')
+    {
+        while (rerollInput != 'n')
+        {
+            dice.statsRoll();
+            statsOrg.updateStats(user, dice);
 
-    return 0;
+            printCharSheet(user);
+            std::cout << "Reroll stats? y/n\n";
+            std::cin >> rerollInput;
+        }
+    }
+    else if (rerollInput == 'n')
+        return 0;
+    else
+        std::cout << "Invalid input. Reroll stats? y/n \n";
 }
 

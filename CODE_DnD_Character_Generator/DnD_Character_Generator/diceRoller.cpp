@@ -97,6 +97,11 @@ int diceRoller::getStats(int index)
     return statv[index];
 }
 
+int diceRoller::setStats(int index, int value)
+{
+    return statv[index] += value;
+}
+
 diceRoller::~diceRoller()
 {
 

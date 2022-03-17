@@ -12,12 +12,16 @@ Character::Character()
     charDex = 0;
     charCon = 0;
     charCha = 0;
+    charHP = 0;
     charAC = 0;
+    charSpeed = 0;
     charInitiative = 0;
 }
 
 
-Character::Character(std::string newName,classtype newClass,racetype newRace,align newAlign,int newStr,int newInt,int newWis,int newDex,int newCon,int newCha,int newAC,int newInitiative)
+Character::Character(std::string newName,classtype newClass,racetype newRace,align newAlign,
+                     int newStr,int newInt,int newWis,int newDex,int newCon,int newCha, 
+                     int newHP, int newAC,int newSpeed, int newInitiative)
 {
     charName = newName;
     charClass = newClass;
@@ -30,6 +34,8 @@ Character::Character(std::string newName,classtype newClass,racetype newRace,ali
     charCon = newCon;
     charCha = newCha;
     charAC = newAC;
+    charHP = newHP;
+    charSpeed = newSpeed;
     charInitiative = newInitiative;
 }
 
@@ -43,7 +49,9 @@ int Character::getWis(){return charWis;}
 int Character::getDex(){return charDex;}
 int Character::getCon(){return charCon;}
 int Character::getCha(){return charCha;}
+int Character::getHP(){return charHP;}
 int Character::getAC(){return charAC;}
+int Character::getSpeed() { return charSpeed; }
 int Character::getInitiative(){return charInitiative;}
 
 std::string Character::getName() { return charName; }
@@ -62,7 +70,9 @@ void Character::setWis(int inWis){charWis = inWis;}
 void Character::setDex(int inDex){charDex = inDex;}
 void Character::setCon(int inCon){charCon = inCon;}
 void Character::setCha(int inCha){charCha = inCha;}
+void Character::setHP(int inHP){charHP = inHP;}
 void Character::setAC(int inAC){charAC = inAC;}
+void Character::setSpeed(int inSpeed){charSpeed = inSpeed;}
 void Character::setInitiative(int inInitiative){charInitiative = inInitiative;}
 
 Character::~Character()

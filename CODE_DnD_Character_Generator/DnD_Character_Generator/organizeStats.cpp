@@ -12,6 +12,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setWis(dice.getStats(3));
 		user.setCha(dice.getStats(4));
 		user.setInt(dice.getStats(5));
+
+		user.setHP(dice.d12());
 		break;
 	case BARD:
 		user.setCha(dice.getStats(0));
@@ -20,6 +22,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setWis(dice.getStats(3));
 		user.setInt(dice.getStats(4));
 		user.setStr(dice.getStats(5));
+
+		user.setHP(dice.d8());
 		break;
 	case CLERIC:
 		user.setWis(dice.getStats(0));
@@ -28,6 +32,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setStr(dice.getStats(3));
 		user.setInt(dice.getStats(4));
 		user.setDex(dice.getStats(5));
+
+		user.setHP(dice.d8());
 		break;
 	case DRUID:
 		user.setWis(dice.getStats(0));
@@ -36,6 +42,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setDex(dice.getStats(3));
 		user.setStr(dice.getStats(4));
 		user.setCha(dice.getStats(5));
+
+		user.setHP(dice.d8());
 		break;
 	case FIGHTER:
 		user.setStr(dice.getStats(0));
@@ -44,6 +52,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setCha(dice.getStats(3));
 		user.setInt(dice.getStats(4));
 		user.setWis(dice.getStats(5));
+
+		user.setHP(dice.d10());
 		break;
 	case MONK:
 		user.setDex(dice.getStats(0));
@@ -52,6 +62,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setStr(dice.getStats(3));
 		user.setCha(dice.getStats(4));
 		user.setInt(dice.getStats(5));
+
+		user.setHP(dice.d8());
 		break;
 	case PALADIN:
 		user.setStr(dice.getStats(0));
@@ -60,6 +72,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setWis(dice.getStats(3));
 		user.setDex(dice.getStats(4));
 		user.setInt(dice.getStats(5));
+
+		user.setHP(dice.d10());
 		break;
 	case RANGER:
 		user.setDex(dice.getStats(0));
@@ -68,6 +82,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setStr(dice.getStats(3));
 		user.setInt(dice.getStats(4));
 		user.setCha(dice.getStats(5));
+
+		user.setHP(dice.d10());
 		break;
 	case ROGUE:
 		user.setDex(dice.getStats(0));
@@ -76,6 +92,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setInt(dice.getStats(3));
 		user.setStr(dice.getStats(4));
 		user.setWis(dice.getStats(5));
+
+		user.setHP(dice.d8());
 		break;
 	case SORCERER:
 		user.setCha(dice.getStats(0));
@@ -84,6 +102,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setWis(dice.getStats(3));
 		user.setStr(dice.getStats(4));
 		user.setDex(dice.getStats(5));
+
+		user.setHP(dice.d6());
 		break;
 	case WARLOCK:
 		user.setCha(dice.getStats(0));
@@ -92,6 +112,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setDex(dice.getStats(3));
 		user.setInt(dice.getStats(4));
 		user.setStr(dice.getStats(5));
+
+		user.setHP(dice.d8());
 		break;
 	case WIZARD:
 		user.setInt(dice.getStats(0));
@@ -100,6 +122,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setCha(dice.getStats(3));
 		user.setDex(dice.getStats(4));
 		user.setStr(dice.getStats(5));
+
+		user.setHP(dice.d6());
 		break;
 	default:
 		user.setInt(1);
@@ -108,6 +132,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setCha(1);
 		user.setDex(1);
 		user.setStr(1);
+
+		user.setHP(1);
 		break;
 	}
 
@@ -118,33 +144,34 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 	case(DRAGONBORN):
 		user.setStr(user.getStr() + 2);
 		user.setCha(user.getCha() + 1);
-		// user.setSpeed(30);
+		user.setSpeed(30);
 		break;
 	case(DWARF):
 		user.setCon(user.getCon() + 2);
-		// user.setSpeed(25);
+		user.setSpeed(25);
 		break;
 	case(ELF):
 		user.setDex(user.getDex() + 2);
-		// user.setSpeed(30);
+		user.setSpeed(30);
 		break;
 	case(GNOME):
 		user.setInt(user.getInt() + 2);
-		// user.setSpeed(25);
+		user.setSpeed(25);
 		break;
 	case(HALFELF):
 		user.setCha(user.getCha() + 2);
-		// statsroll[0] += 1;
-		// statsroll[1] += 1;
-		// user.setSpeed(30);
+		dice.setStats(0, 1);
+		dice.setStats(1, 1);
+
+		user.setSpeed(30);
 		break;
 	case(HALFLING):
 		user.setDex(user.getDex() + 2);
-		// user.setSpeed(25);
+		user.setSpeed(25);
 	case(HALFORC):
 		user.setStr(user.getStr() + 2);
 		user.setCon(user.getCon() + 1);
-		// user.setSpeed(30);
+		user.setSpeed(30);
 		break;
 	case(HUMAN):
 		user.setStr(user.getStr() + 1);
@@ -153,11 +180,11 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setCha(user.getCha() + 1);
 		user.setInt(user.getInt() + 1);
 		user.setInt(user.getInt() + 1);
-		// user.setSpeed(30);
+		user.setSpeed(30);
 	case(TIEFLING):
 		user.setCha(user.getCha() + 2);
 		user.setInt(user.getInt() + 1);
-		// user.setSpeed(30);
+		user.setSpeed(30);
 	}
 
 		// Set armor class

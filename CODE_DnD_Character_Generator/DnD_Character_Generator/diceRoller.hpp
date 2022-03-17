@@ -21,4 +21,5 @@ public:
 
     void statsRoll();
     int getStats(int index);
+    int setStats(int index, int value);
 };
