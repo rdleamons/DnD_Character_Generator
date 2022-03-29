@@ -62,6 +62,7 @@ int diceRoller::d12()
 void diceRoller::statsRoll()
 {
   std::vector<int> v = {};
+  statv = { 0, 0, 0, 0, 0, 0 };
 
   // rolling 4 d6 6 times then arranging the outcomes in descending order
   srand(time(NULL));

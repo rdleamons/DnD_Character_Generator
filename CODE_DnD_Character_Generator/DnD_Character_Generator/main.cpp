@@ -118,9 +118,27 @@ int main()
     printCharSheet(user);
 
     // Prompt user to reroll stats
-    std::cout << "\nReroll stats? y/n \n";
-    std::cin >> rerollInput;
+    //std::cout << "\nReroll stats? y/n \n";
+    //std::cin >> rerollInput;
 
+    do
+    {
+        std::cout << "Reroll stats? y/n\n";
+        std::cin >> rerollInput;
+
+        if (rerollInput == 'y')
+        {
+            dice.statsRoll();
+            statsOrg.updateStats(user, dice);
+
+            printCharSheet(user);
+        }
+
+    } while (rerollInput != 'n');
+
+    if (rerollInput == 'n')
+        return 0;
+/*
     if (rerollInput == 'y')
     {
         while (rerollInput != 'n')
@@ -136,6 +154,6 @@ int main()
     else if (rerollInput == 'n')
         return 0;
     else
-        std::cout << "Invalid input. Reroll stats? y/n \n";
+        std::cout << "Invalid input. Reroll stats? y/n \n";*/
 }
 
