@@ -12,6 +12,14 @@ Character::Character()
     charDex = 0;
     charCon = 0;
     charCha = 0;
+
+    charStrMod = 0;
+    charIntMod = 0;
+    charWisMod = 0;
+    charDexMod = 0;
+    charConMod = 0;
+    charChaMod = 0;
+
     charHP = 0;
     charAC = 0;
     charSpeed = 0;
@@ -21,7 +29,8 @@ Character::Character()
 
 Character::Character(std::string newName,classtype newClass,racetype newRace,align newAlign,
                      int newStr,int newInt,int newWis,int newDex,int newCon,int newCha, 
-                     int newHP, int newAC,int newSpeed, int newInitiative)
+                     int newStrMod, int newIntMod, int newWisMod, int newDexMod, int newConMod, int newChaMod,
+                     int newHP, int newAC, int newSpeed, int newInitiative)
 {
     charName = newName;
     charClass = newClass;
@@ -33,6 +42,14 @@ Character::Character(std::string newName,classtype newClass,racetype newRace,ali
     charDex = newDex;
     charCon = newCon;
     charCha = newCha;
+
+    charStrMod = newStrMod;
+    charIntMod = newIntMod;
+    charWisMod = newWisMod;
+    charDexMod = newDexMod;
+    charConMod = newConMod;
+    charChaMod = newChaMod;
+
     charAC = newAC;
     charHP = newHP;
     charSpeed = newSpeed;
@@ -49,6 +66,14 @@ int Character::getWis(){return charWis;}
 int Character::getDex(){return charDex;}
 int Character::getCon(){return charCon;}
 int Character::getCha(){return charCha;}
+
+int Character::getStrMod() { return charStrMod; }
+int Character::getIntMod() { return charIntMod; }
+int Character::getWisMod() { return charWisMod; }
+int Character::getDexMod() { return charDexMod; }
+int Character::getConMod() { return charConMod; }
+int Character::getChaMod() { return charChaMod; }
+
 int Character::getHP(){return charHP;}
 int Character::getAC(){return charAC;}
 int Character::getSpeed() { return charSpeed; }
@@ -70,6 +95,14 @@ void Character::setWis(int inWis){charWis = inWis;}
 void Character::setDex(int inDex){charDex = inDex;}
 void Character::setCon(int inCon){charCon = inCon;}
 void Character::setCha(int inCha){charCha = inCha;}
+
+void Character::setStrMod(int inStrMod) { charStrMod = inStrMod; }
+void Character::setIntMod(int inIntMod) { charIntMod = inIntMod; }
+void Character::setWisMod(int inWisMod) { charWisMod = inWisMod; }
+void Character::setDexMod(int inDexMod) { charDexMod = inDexMod; }
+void Character::setConMod(int inConMod) { charConMod = inConMod; }
+void Character::setChaMod(int inChaMod) { charChaMod = inChaMod; }
+
 void Character::setHP(int inHP){charHP = inHP;}
 void Character::setAC(int inAC){charAC = inAC;}
 void Character::setSpeed(int inSpeed){charSpeed = inSpeed;}

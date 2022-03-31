@@ -187,6 +187,14 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		user.setSpeed(30);
 	}
 
-		// Set armor class
-		// user.setAC(10 + dexModifier) 
+	// Calculate and set modifiers
+	user.setStrMod(((user.getStr() - 10) / 2));
+	user.setIntMod(((user.getInt() - 10) / 2));
+	user.setWisMod(((user.getWis() - 10) / 2));
+	user.setChaMod(((user.getCha() - 10) / 2));
+	user.setConMod(((user.getCon() - 10) / 2));
+	user.setDexMod(((user.getDex() - 10) / 2));
+
+	// Set armor class
+	user.setAC(10 + user.getDexMod());
 }

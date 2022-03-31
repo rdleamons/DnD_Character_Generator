@@ -7,7 +7,7 @@ class Character
 {
     public:
         Character();
-        Character(std::string,classtype,racetype,align,int, int,int,int,int,int,int,int,int,int);
+        Character(std::string,classtype,racetype,align,int, int,int,int,int,int,int,int,int,int, int, int, int, int, int, int);
 
         std::string getName();
         classtype getClass();
@@ -21,6 +21,14 @@ class Character
         int getCha();
         int getHP();
         int getAC();
+
+        int getStrMod();
+        int getIntMod();
+        int getWisMod();
+        int getDexMod();
+        int getConMod();
+        int getChaMod();
+
         int getSpeed();
         int getInitiative();
 
@@ -38,6 +46,14 @@ class Character
         void setDex(int);
         void setCon(int);
         void setCha(int);
+
+        void setStrMod(int);
+        void setIntMod(int);
+        void setWisMod(int);
+        void setDexMod(int);
+        void setConMod(int);
+        void setChaMod(int);
+
         void setHP(int);
         void setAC(int);
         void setSpeed(int);
@@ -57,6 +73,14 @@ class Character
         int charDex;
         int charCon;
         int charCha;
+
+        int charStrMod;
+        int charIntMod;
+        int charWisMod;
+        int charDexMod;
+        int charConMod;
+        int charChaMod;
+
         int charHP;
         int charAC;
         int charSpeed;

@@ -15,12 +15,12 @@ void printCharSheet(Character &user)
         << "Speed: \t\t" << user.getSpeed() << '\n'
         << "Hit Points: \t" << user.getHP() << '\n' << std::endl 
 
-        << "Strength:\t" << user.getStr() << '\n'
-        << "Intelligence:\t" << user.getInt() << '\n'
-        << "Wisdom:\t\t" << user.getWis() << '\n'
-        << "Dexterity:\t" << user.getDex() << '\n'
-        << "Constitution:\t" << user.getCon() << '\n'
-        << "Charisma:\t" << user.getCha() << '\n'
+        << "Strength:\t" << user.getStr() << "\tModifer: " << user.getStrMod() << '\n'
+        << "Intelligence:\t" << user.getInt() << "\tModifer: " << user.getIntMod() << '\n'
+        << "Wisdom:\t\t" << user.getWis() << "\tModifer: " << user.getWisMod() << '\n'
+        << "Dexterity:\t" << user.getDex() << "\tModifer: " << user.getDexMod() << '\n'
+        << "Constitution:\t" << user.getCon() << "\tModifer: " << user.getConMod() << '\n'
+        << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n'
         <<"Armor Class:\t"<<user.getAC()<<'\n'
         <<"Initiative:\t"<<user.getInitiative()<<'\n';
 }
