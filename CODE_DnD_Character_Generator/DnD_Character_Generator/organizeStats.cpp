@@ -195,6 +195,9 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 	user.setConMod(((user.getCon() - 10) / 2));
 	user.setDexMod(((user.getDex() - 10) / 2));
 
+	// Set initiative modifier
+	user.setInitiative(user.getDexMod());
+
 	// Set armor class
 	user.setAC(10 + user.getDexMod());
 }

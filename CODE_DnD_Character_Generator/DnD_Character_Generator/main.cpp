@@ -20,7 +20,8 @@ void printCharSheet(Character &user)
         << "Wisdom:\t\t" << user.getWis() << "\tModifer: " << user.getWisMod() << '\n'
         << "Dexterity:\t" << user.getDex() << "\tModifer: " << user.getDexMod() << '\n'
         << "Constitution:\t" << user.getCon() << "\tModifer: " << user.getConMod() << '\n'
-        << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n'
+        << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n' << std::endl
+
         <<"Armor Class:\t"<<user.getAC()<<'\n'
         <<"Initiative:\t"<<user.getInitiative()<<'\n';
 }
@@ -117,13 +118,9 @@ int main()
     // Print character sheet
     printCharSheet(user);
 
-    // Prompt user to reroll stats
-    //std::cout << "\nReroll stats? y/n \n";
-    //std::cin >> rerollInput;
-
     do
     {
-        std::cout << "Reroll stats? y/n\n";
+        std::cout << std::endl << "\nReroll stats? y/n\n";
         std::cin >> rerollInput;
 
         if (rerollInput == 'y')
@@ -138,22 +135,5 @@ int main()
 
     if (rerollInput == 'n')
         return 0;
-/*
-    if (rerollInput == 'y')
-    {
-        while (rerollInput != 'n')
-        {
-            dice.statsRoll();
-            statsOrg.updateStats(user, dice);
-
-            printCharSheet(user);
-            std::cout << "Reroll stats? y/n\n";
-            std::cin >> rerollInput;
-        }
-    }
-    else if (rerollInput == 'n')
-        return 0;
-    else
-        std::cout << "Invalid input. Reroll stats? y/n \n";*/
 }
 
