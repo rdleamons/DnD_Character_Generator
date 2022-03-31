@@ -13,7 +13,7 @@ void printCharSheet(Character &user)
         << "Race:\t\t" << user.getStrRace() << '\n'
         << "Alignment:\t" << user.getStrAlign() << '\n'
         << "Speed: \t\t" << user.getSpeed() << '\n'
-        << "Hit Points: \t" << user.getHP() << '\n' << std::endl 
+        << "Hit Points: \t" << user.getHP() << '\n' << std::endl
 
         << "Strength:\t" << user.getStr() << "\tModifer: " << user.getStrMod() << '\n'
         << "Intelligence:\t" << user.getInt() << "\tModifer: " << user.getIntMod() << '\n'
@@ -37,7 +37,7 @@ int main()
 
     // Set character name
     std::cout<<"What's your character's name?\n?>";
-    std::cin >> inName;
+    std::getline(std::cin, inName);
     while(inName == ""){
         std::cout<<"?>";
         std::cin >> inName;
