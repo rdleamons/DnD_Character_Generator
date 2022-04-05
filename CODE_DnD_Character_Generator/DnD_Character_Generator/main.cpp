@@ -37,12 +37,11 @@ int main()
     char rerollInput;
 
     // Set character name
-    std::cout<<"What's your character's name?\n?>";
-    std::getline(std::cin, inName);
-    while(inName == ""){
+    std::cout<<"What's your character's name?\n";
+    do{
         std::cout<<"?>";
-        std::cin >> inName;
-    }
+        std::getline(std::cin, inName);
+    }while(inName == "");
     user.setName(inName);
 
     // Set character class
@@ -67,6 +66,8 @@ int main()
             valid=1;
         }else{
             std::cout<<"Invalid choice! ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         }
     }while(valid==0);
     user.setClass(classtype(input-1));
@@ -90,6 +91,8 @@ int main()
             valid=1;
         }else{
             std::cout<<"Invalid choice!";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         }
     }while(valid==0);
     user.setRace(racetype(input-1));
@@ -107,6 +110,8 @@ int main()
             valid=1;
         }else{
             std::cout<<"Invalid choice!";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         }
     }while(valid==0);
     user.setAlign(align(input-1));
@@ -120,7 +125,7 @@ int main()
 
     do
     {
-        std::cout << std::endl << "\nReroll stats? y/n\n";
+        std::cout << std::endl << "\nReroll stats? y/n\n?>";
         std::cin >> rerollInput;
 
         if (rerollInput == 'y')
