@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "Character.hpp"
 #include "datatypes.hpp"
 #include "diceRoller.hpp"
@@ -26,8 +27,30 @@ void printCharSheet(Character &user)
         <<"Initiative:\t"<<user.getInitiative()<<'\n';
 }
 
+void printCharSheetToFile(Character& user, std::ofstream &file)
+{
+    file << "\n"
+        << "Name:\t\t" << user.getName() << '\n'
+        << "Class:\t\t" << user.getStrClass() << '\n'
+        << "Race:\t\t" << user.getStrRace() << '\n'
+        << "Alignment:\t" << user.getStrAlign() << '\n'
+        << "Speed: \t\t" << user.getSpeed() << '\n'
+        << "Hit Points: \t" << user.getHP() << '\n' << std::endl
+
+        << "Strength:\t" << user.getStr() << "\tModifer: " << user.getStrMod() << '\n'
+        << "Intelligence:\t" << user.getInt() << "\tModifer: " << user.getIntMod() << '\n'
+        << "Wisdom:\t\t" << user.getWis() << "\tModifer: " << user.getWisMod() << '\n'
+        << "Dexterity:\t" << user.getDex() << "\tModifer: " << user.getDexMod() << '\n'
+        << "Constitution:\t" << user.getCon() << "\tModifer: " << user.getConMod() << '\n'
+        << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n' << std::endl
+
+        << "Armor Class:\t" << user.getAC() << '\n'
+        << "Initiative:\t" << user.getInitiative() << '\n';
+}
+
 int main()
 {
+    std::ofstream charSheetFile;
     Character user;
     diceRoller dice;
     statsOrganizer statsOrg;
@@ -35,6 +58,7 @@ int main()
     bool valid;
     int input;
     char rerollInput;
+    char fileInput;
 
     // Set character name
     std::cout<<"What's your character's name?\n?>";
@@ -134,6 +158,20 @@ int main()
     } while (rerollInput != 'n');
 
     if (rerollInput == 'n')
-        return 0;
+    {
+        std::cout << "\nWould you like to save your character sheet? y/n\n";
+        std::cin >> fileInput;
+
+        if (fileInput == 'y')
+        {
+            charSheetFile.open("../../" + user.getName() + "_CharacterSheet.txt");
+            printCharSheetToFile(user, charSheetFile);
+            charSheetFile.close();
+            return 0;
+        }
+        else
+            return 0;
+            
+    }
 }
 
