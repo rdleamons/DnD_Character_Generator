@@ -6,6 +6,8 @@
 #include "diceRoller.hpp"
 #include "organizeStats.hpp"
 
+
+
 void printCharSheet(Character &user)
 {
     std::cout << "\n"
@@ -59,6 +61,7 @@ int main()
     int input;
     char rerollInput;
     char fileInput;
+    char illegal_chars[] = {'<','>',':','"','/','\\','|','?','*',0};
 
     // Set character name
     std::cout<<"What's your character's name?\n";
@@ -66,30 +69,51 @@ int main()
         std::cout<<"?>";
         std::getline(std::cin, inName);
     }while(inName == "");
+
+    //check for invalid characters in name
+    do{
+        valid=1;
+        for(unsigned int i=0;i<sizeof(illegal_chars);i++){
+            if(inName.find(illegal_chars[i])<inName.length())
+            {
+                valid=0;
+                break;
+            }
+        }
+        if(valid==0)
+        {
+            std::cout<<"Invalid input!\n";
+            do{
+                std::cout<<"?>";
+                std::getline(std::cin, inName);
+            }while(inName == "");
+        }
+    }while(valid==0);
+
     user.setName(inName);
 
     // Set character class
     valid=0;
+    std::cout<<"\nWhat's " << user.getName() << "'s class? Enter the corresponding number:\n"
+        <<"1) Barbairian\n"
+        <<"2) Bard\n"
+        <<"3) Cleric\n"
+        <<"4) Druid\n"
+        <<"5) Fighter\n"
+        <<"6) Monk\n"
+        <<"7) Paladin\n"
+        <<"8) Ranger\n"
+        <<"9) Rogue\n"
+        <<"10) Sorcerer\n"
+        <<"11) Warlock\n"
+        <<"12) Wizard\n";
     do{
-        std::cout<<"\nWhat's " << user.getName() << "'s class? Enter the corresponding number:\n"
-            <<"1) Barbairian\n"
-            <<"2) Bard\n"
-            <<"3) Cleric\n"
-            <<"4) Druid\n"
-            <<"5) Fighter\n"
-            <<"6) Monk\n"
-            <<"7) Paladin\n"
-            <<"8) Ranger\n"
-            <<"9) Rogue\n"
-            <<"10) Sorcerer\n"
-            <<"11) Warlock\n"
-            <<"12) Wizard\n"
-            <<"?>";
+        std::cout<<"?>";
         std::cin>>input;
         if(input >= 1 && input <= 12){
             valid=1;
         }else{
-            std::cout<<"Invalid choice! ";
+            std::cout<<"Invalid choice!\n";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         }
@@ -98,23 +122,23 @@ int main()
 
     // Set character class
     valid=0;
+    std::cout<<"\nWhat's " << user.getName() << "'s race? Enter the corresponding number:\n"
+        <<"1) Dragonborn\n"
+        <<"2) Dwarf\n"
+        <<"3) Elf\n"
+        <<"4) Gnome\n"
+        <<"5) Half-Elf\n"
+        <<"6) Halfling\n"
+        <<"7) Half-Orc\n"
+        <<"8) Human\n"
+        <<"9) Tiefling\n";
     do{
-        std::cout<<"\nWhat's " << user.getName() << "'s race? Enter the corresponding number:\n"
-            <<"1) Dragonborn\n"
-            <<"2) Dwarf\n"
-            <<"3) Elf\n"
-            <<"4) Gnome\n"
-            <<"5) Half-Elf\n"
-            <<"6) Halfling\n"
-            <<"7) Half-Orc\n"
-            <<"8) Human\n"
-            <<"9) Tiefling\n"
-            <<"?>";
+        std::cout<<"?>";
         std::cin>>input;
         if(input >= 1 && input <= 9){
             valid=1;
         }else{
-            std::cout<<"Invalid choice!";
+            std::cout<<"Invalid choice!\n";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         }
@@ -123,17 +147,17 @@ int main()
 
     // Set alignment
     valid=0;
+    std::cout<<"\nWhat's " << user.getName() << "'s alignment?\n"
+        <<"1) Lawful Good    | 2) Neutral Good | 3) Chaotic Good \n"
+        <<"4) Lawful Neutral | 5) True Neutral | 6) Chaotic Neutral \n"
+        <<"7) Lawful Evil    | 8) Neutral Evil | 9) Chaotic Evil \n";
     do{
-        std::cout<<"\nWhat's " << user.getName() << "'s alignment?\n"
-            <<"1) Lawful Good    | 2) Neutral Good | 3) Chaotic Good \n"
-            <<"4) Lawful Neutral | 5) True Neutral | 6) Chaotic Neutral \n"
-            <<"7) Lawful Evil    | 8) Neutral Evil | 9) Chaotic Evil \n"
-            <<"?>";
+        std::cout<<"?>";
         std::cin>>input;
         if(input >= 1 && input <= 9){
             valid=1;
         }else{
-            std::cout<<"Invalid choice!";
+            std::cout<<"Invalid choice!\n";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         }
@@ -164,7 +188,7 @@ int main()
 
     if (rerollInput == 'n')
     {
-        std::cout << "\nWould you like to save your character sheet? y/n\n";
+        std::cout << "\nWould you like to save your character sheet? y/n\n?>";
         std::cin >> fileInput;
 
         if (fileInput == 'y')
@@ -176,7 +200,7 @@ int main()
         }
         else
             return 0;
-            
+
     }
 }
 
