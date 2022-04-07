@@ -29,7 +29,7 @@ void printCharSheet(Character &user)
 
 void printCharSheetToFile(Character& user, std::ofstream &file)
 {
-    file << "\n"
+    file
         << "Name:\t\t" << user.getName() << '\n'
         << "Class:\t\t" << user.getStrClass() << '\n'
         << "Race:\t\t" << user.getStrRace() << '\n'
@@ -169,7 +169,7 @@ int main()
 
         if (fileInput == 'y')
         {
-            charSheetFile.open("../../" + user.getName() + "_CharacterSheet.txt");
+            charSheetFile.open(user.getName() + "_CharacterSheet.txt");
             printCharSheetToFile(user, charSheetFile);
             charSheetFile.close();
             return 0;

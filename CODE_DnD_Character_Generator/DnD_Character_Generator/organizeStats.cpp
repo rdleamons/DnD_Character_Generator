@@ -1,8 +1,15 @@
 #include "organizeStats.hpp"
 #include <iostream>
 
+statsOrganizer::statsOrganizer()
+{
+
+}
+
 void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 {
+	// Organize stats (high -> low) based on class
+	// Also randomizes and sets HP
 	switch (user.getClass())
 	{
 	case BARBARIAN:
@@ -138,7 +145,7 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 	}
 
 
-	// Change stats based on class
+	// Change stats based on race and set speed
 	switch (user.getRace())
 	{
 	case(DRAGONBORN):
@@ -200,4 +207,9 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 
 	// Set armor class
 	user.setAC(10 + user.getDexMod());
+}
+
+statsOrganizer::~statsOrganizer()
+{
+
 }
