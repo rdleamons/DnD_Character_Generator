@@ -25,8 +25,9 @@ void printCharSheet(Character &user)
         << "Constitution:\t" << user.getCon() << "\tModifer: " << user.getConMod() << '\n'
         << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n' << std::endl
 
-        <<"Armor Class:\t"<<user.getAC()<<'\n'
-        <<"Initiative:\t"<<user.getInitiative()<<'\n';
+        << "Racial Stat Bonus:\t" << user.getProficiencies() << '\n'
+        << "Armor Class:\t"<<user.getAC()<<'\n'
+        << "Initiative:\t"<<user.getInitiative()<<'\n';
 }
 
 void printCharSheetToFile(Character& user, std::ofstream &file)
@@ -46,6 +47,7 @@ void printCharSheetToFile(Character& user, std::ofstream &file)
         << "Constitution:\t" << user.getCon() << "\tModifer: " << user.getConMod() << '\n'
         << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n' << std::endl
 
+        << "Racial Stat Bonus:\t" << user.getProficiencies() << '\n'
         << "Armor Class:\t" << user.getAC() << '\n'
         << "Initiative:\t" << user.getInitiative() << '\n';
 }

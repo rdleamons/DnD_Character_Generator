@@ -9,4 +9,5 @@ public:
 	statsOrganizer();
 	~statsOrganizer();
 	void updateStats(Character &user, diceRoller &dice);
+	void reorganizeStats(Character& user, diceRoller& dice);
 };

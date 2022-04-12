@@ -30,7 +30,7 @@ Character::Character()
 Character::Character(std::string newName,classtype newClass,racetype newRace,align newAlign,
                      int newStr,int newInt,int newWis,int newDex,int newCon,int newCha, 
                      int newStrMod, int newIntMod, int newWisMod, int newDexMod, int newConMod, int newChaMod,
-                     int newHP, int newAC, int newSpeed, int newInitiative)
+                     int newHP, int newAC, int newSpeed, int newInitiative, std::string newProficiencies)
 {
     charName = newName;
     charClass = newClass;
@@ -54,6 +54,7 @@ Character::Character(std::string newName,classtype newClass,racetype newRace,ali
     charHP = newHP;
     charSpeed = newSpeed;
     charInitiative = newInitiative;
+    charProficiencies = newProficiencies;
 }
 
 //getters
@@ -83,6 +84,7 @@ std::string Character::getName() { return charName; }
 std::string Character::getStrClass(){return strClass(charClass);}
 std::string Character::getStrRace(){return strRace(charRace);}
 std::string Character::getStrAlign(){return strAlign(charAlign);}
+std::string Character::getProficiencies() { return charProficiencies; }
 
 //setters
 void Character::setName(std::string inName){charName = inName;}
@@ -107,6 +109,7 @@ void Character::setHP(int inHP){charHP = inHP;}
 void Character::setAC(int inAC){charAC = inAC;}
 void Character::setSpeed(int inSpeed){charSpeed = inSpeed;}
 void Character::setInitiative(int inInitiative){charInitiative = inInitiative;}
+void Character::setProficiencies(std::string inProficiencies) { charProficiencies = inProficiencies; }
 
 Character::~Character()
 {

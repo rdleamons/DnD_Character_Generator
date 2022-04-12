@@ -7,7 +7,7 @@ class Character
 {
     public:
         Character();
-        Character(std::string,classtype,racetype,align,int, int,int,int,int,int,int,int,int,int, int, int, int, int, int, int);
+        Character(std::string,classtype,racetype,align,int, int,int,int,int,int,int,int,int,int, int, int, int, int, int, int, std::string);
 
         std::string getName();
         classtype getClass();
@@ -35,6 +35,7 @@ class Character
         std::string getStrClass();
         std::string getStrRace();
         std::string getStrAlign();
+        std::string getProficiencies();
 
         void setName(std::string);
         void setClass(classtype);
@@ -58,6 +59,7 @@ class Character
         void setAC(int);
         void setSpeed(int);
         void setInitiative(int);
+        void setProficiencies(std::string);
 
         virtual ~Character();
     protected:
@@ -85,6 +87,7 @@ class Character
         int charAC;
         int charSpeed;
         int charInitiative;
+        std::string charProficiencies;
 };
 
 #endif // CHARACTER_H
