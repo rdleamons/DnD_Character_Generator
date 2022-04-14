@@ -17,13 +17,13 @@ void printCharSheet(Character &user)
         << "Alignment:\t" << user.getStrAlign() << '\n'
         << "Speed: \t\t" << user.getSpeed() << '\n'
         << "Hit Points: \t" << user.getHP() << '\n' << std::endl
-
-        << "Strength:\t" << user.getStr() << "\tModifer: " << user.getStrMod() << '\n'
-        << "Intelligence:\t" << user.getInt() << "\tModifer: " << user.getIntMod() << '\n'
-        << "Wisdom:\t\t" << user.getWis() << "\tModifer: " << user.getWisMod() << '\n'
-        << "Dexterity:\t" << user.getDex() << "\tModifer: " << user.getDexMod() << '\n'
+       
+        << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n'
         << "Constitution:\t" << user.getCon() << "\tModifer: " << user.getConMod() << '\n'
-        << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n' << std::endl
+        << "Dexterity:\t" << user.getDex() << "\tModifer: " << user.getDexMod() << '\n'
+        << "Intelligence:\t" << user.getInt() << "\tModifer: " << user.getIntMod() << '\n'
+        << "Strength:\t" << user.getStr() << "\tModifer: " << user.getStrMod() << '\n'
+        << "Wisdom:\t\t" << user.getWis() << "\tModifer: " << user.getWisMod() << '\n' << std::endl
 
         << "Racial Stat Bonus:\t" << user.getProficiencies() << '\n'
         << "Armor Class:\t"<<user.getAC()<<'\n'
@@ -40,12 +40,12 @@ void printCharSheetToFile(Character& user, std::ofstream &file)
         << "Speed: \t\t" << user.getSpeed() << '\n'
         << "Hit Points: \t" << user.getHP() << '\n' << std::endl
 
-        << "Strength:\t" << user.getStr() << "\tModifer: " << user.getStrMod() << '\n'
-        << "Intelligence:\t" << user.getInt() << "\tModifer: " << user.getIntMod() << '\n'
-        << "Wisdom:\t\t" << user.getWis() << "\tModifer: " << user.getWisMod() << '\n'
-        << "Dexterity:\t" << user.getDex() << "\tModifer: " << user.getDexMod() << '\n'
+        << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n'
         << "Constitution:\t" << user.getCon() << "\tModifer: " << user.getConMod() << '\n'
-        << "Charisma:\t" << user.getCha() << "\tModifer: " << user.getChaMod() << '\n' << std::endl
+        << "Dexterity:\t" << user.getDex() << "\tModifer: " << user.getDexMod() << '\n'
+        << "Intelligence:\t" << user.getInt() << "\tModifer: " << user.getIntMod() << '\n'
+        << "Strength:\t" << user.getStr() << "\tModifer: " << user.getStrMod() << '\n'
+        << "Wisdom:\t\t" << user.getWis() << "\tModifer: " << user.getWisMod() << '\n' << std::endl
 
         << "Racial Stat Bonus:\t" << user.getProficiencies() << '\n'
         << "Armor Class:\t" << user.getAC() << '\n'

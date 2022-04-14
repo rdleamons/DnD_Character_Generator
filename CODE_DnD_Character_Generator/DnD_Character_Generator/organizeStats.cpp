@@ -144,7 +144,6 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 		break;
 	}
 
-
 	// Change stats based on race and set speed
 	switch (user.getRace())
 	{
@@ -219,7 +218,14 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 
 void statsOrganizer::reorganizeStats(Character& user, diceRoller& dice)
 {
+	int userInput;
 
+	std::cout << "\nYour stats are as follows: \n";
+
+	for (int i = 0; i < 6; i++)
+	{
+		std::cout << i+1 << " " << dice.statv[i] << std::endl;
+	}
 }
 
 statsOrganizer::~statsOrganizer()
