@@ -219,7 +219,32 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 
 void statsOrganizer::reorganizeStats(Character& user, diceRoller& dice)
 {
+    /*unfinished. I want to go get dinner lol
+    bool assnStats[6] = {0,0,0,0,0,0};
+    char input;
+    bool valid=0;
+    for(int i=0;i<6;i++){
+        std::cout<<dice.getStats(0)<<'\n'
+                 <<"Assign to:\n|";
+        if(!assnStats[0]){std::cout<<"(S)trength|";}
+        if(!assnStats[1]){std::cout<<"(I)ntelligence|";}
+        if(!assnStats[2]){std::cout<<"(W)isdom|";}
+        if(!assnStats[3]){std::cout<<"(D)exterity|";}
+        if(!assnStats[4]){std::cout<<"(C)onstitution|";}
+        if(!assnStats[5]){std::cout<<"c(H)arisma|";}
+        do{
+            std::cout<<"?>";
+            std::cin>>input;
+            switch(input){
+                case 's':
+                case 'S':
 
+
+            }while valid==0;
+        }
+    }
+
+    */
 }
 
 statsOrganizer::~statsOrganizer()
