@@ -219,7 +219,8 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 
 void statsOrganizer::reorganizeStats(Character& user, diceRoller& dice)
 {
-    /*unfinished. I want to go get dinner lol
+    /*
+    unfinished. I want to go get dinner lol
     bool assnStats[6] = {0,0,0,0,0,0};
     char input;
     bool valid=0;
