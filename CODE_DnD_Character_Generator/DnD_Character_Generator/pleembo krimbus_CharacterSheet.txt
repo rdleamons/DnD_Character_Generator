@@ -1,0 +1,13 @@
+Name:		pleembo krimbus
+Class:		Barbarian
+Race:		Dragonborn
+Alignment:	Lawful Good
+Speed: 		30
+Hit Points: 	62570Strength:	18	Modifer: 4
+Intelligence:	9	Modifer: 0
+Wisdom:		16	Modifer: 3
+Dexterity:	16	Modifer: 3
+Constitution:	16	Modifer: 3
+Charisma:	14	Modifer: 22570Racial Stat Bonus:	+2 Strength 	+1 Charisma
+Armor Class:	13
+Initiative:	3

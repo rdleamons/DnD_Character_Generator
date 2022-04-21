@@ -173,13 +173,19 @@ int main()
 
     do
     {
-        std::cout << std::endl << "\nReroll stats? y/n\n?>";
+        std::cout << std::endl << "\nReroll stats? y/n/re(s)ort\n?>";
         std::cin >> rerollInput;
 
         if (rerollInput == 'y')
         {
             dice.statsRoll();
             statsOrg.updateStats(user, dice);
+
+            printCharSheet(user);
+        }
+        if(rerollInput == 's')
+        {
+            statsOrg.reorganizeStats(user, dice);
 
             printCharSheet(user);
         }

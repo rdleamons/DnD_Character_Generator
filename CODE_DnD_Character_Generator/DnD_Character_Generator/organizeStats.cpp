@@ -220,32 +220,86 @@ void statsOrganizer::updateStats(Character& user, diceRoller& dice)
 void statsOrganizer::reorganizeStats(Character& user, diceRoller& dice)
 {
     /*
-    unfinished. I want to go get dinner lol
+    semi-finished. im tired.*/
     bool assnStats[6] = {0,0,0,0,0,0};
     char input;
     bool valid=0;
     for(int i=0;i<6;i++){
-        std::cout<<dice.getStats(0)<<'\n'
-                 <<"Assign to:\n|";
-        if(!assnStats[0]){std::cout<<"(S)trength|";}
-        if(!assnStats[1]){std::cout<<"(I)ntelligence|";}
-        if(!assnStats[2]){std::cout<<"(W)isdom|";}
-        if(!assnStats[3]){std::cout<<"(D)exterity|";}
-        if(!assnStats[4]){std::cout<<"(C)onstitution|";}
-        if(!assnStats[5]){std::cout<<"c(H)arisma|";}
+        std::cout<<dice.getStats(i)<<'\n'
+                 <<"Assign to:\n| ";
+        if(!assnStats[0]){std::cout<<"(S)trength | ";}
+        if(!assnStats[1]){std::cout<<"(I)ntelligence | ";}
+        if(!assnStats[2]){std::cout<<"(W)isdom | ";}
+        if(!assnStats[3]){std::cout<<"(D)exterity | ";}
+        if(!assnStats[4]){std::cout<<"(C)onstitution | ";}
+        if(!assnStats[5]){std::cout<<"c(H)arisma |";}
         do{
-            std::cout<<"?>";
+            std::cout<<"\n?>";
             std::cin>>input;
             switch(input){
                 case 's':
                 case 'S':
-
-
-            }while valid==0;
-        }
+                    if(assnStats[0]){valid=0;}
+                    else{
+                        user.setStr(dice.getStats(i));
+                        assnStats[0]=1;
+                        valid=1;
+                    }
+                    break;
+                case 'i':
+                case 'I':
+                    if(assnStats[1]){valid=0;}
+                    else{
+                        user.setInt(dice.getStats(i));
+                        assnStats[1]=1;
+                        valid=1;
+                    }
+                    break;
+                case 'w':
+                case 'W':
+                    if(assnStats[2]){valid=0;}
+                    else{
+                        user.setWis(dice.getStats(i));
+                        assnStats[2]=1;
+                        valid=1;
+                    }
+                    break;
+                case 'd':
+                case 'D':
+                    if(assnStats[3]){valid=0;}
+                    else{
+                        user.setDex(dice.getStats(i));
+                        assnStats[3]=1;
+                        valid=1;
+                    }
+                    break;
+                case 'c':
+                case 'C':
+                    if(assnStats[4]){valid=0;}
+                    else{
+                        user.setCon(dice.getStats(i));
+                        assnStats[4]=1;
+                        valid=1;
+                    }
+                    break;
+                case 'h':
+                case 'H':
+                    if(assnStats[5]){valid=0;}
+                    else{
+                        user.setCha(dice.getStats(i));
+                        assnStats[5]=1;
+                        valid=1;
+                    }
+                    break;
+                default:
+                    valid=0;
+                    break;
+            }
+            if(!valid){
+                std::cout<<"Invalid response!\n";
+            }
+        }while(valid==0);
     }
-
-    */
 }
 
 statsOrganizer::~statsOrganizer()
