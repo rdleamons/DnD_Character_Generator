@@ -300,6 +300,63 @@ void statsOrganizer::reorganizeStats(Character& user, diceRoller& dice)
             }
         }while(valid==0);
     }
+
+	// Change stats based on race and set speed
+	switch (user.getRace())
+	{
+	case(DRAGONBORN):
+		user.setStr(user.getStr() + 2);
+		user.setCha(user.getCha() + 1);
+		user.setProficiencies("+2 Strength \t+1 Charisma");
+		user.setSpeed(30);
+		break;
+	case(DWARF):
+		user.setCon(user.getCon() + 2);
+		user.setProficiencies("+2 Constitution");
+		user.setSpeed(25);
+		break;
+	case(ELF):
+		user.setDex(user.getDex() + 2);
+		user.setProficiencies("+2 Dexterity");
+		user.setSpeed(30);
+		break;
+	case(GNOME):
+		user.setInt(user.getInt() + 2);
+		user.setProficiencies("+2 Intelligence");
+		user.setSpeed(25);
+		break;
+	case(HALFELF):
+		user.setCha(user.getCha() + 2);
+		dice.setStats(0, 1);
+		dice.setStats(1, 1);
+		user.setProficiencies("+2 Charisma, +1 To 2 highest stats");
+		user.setSpeed(30);
+		break;
+	case(HALFLING):
+		user.setDex(user.getDex() + 2);
+		user.setProficiencies("+2 Dexterity");
+		user.setSpeed(25);
+	case(HALFORC):
+		user.setStr(user.getStr() + 2);
+		user.setCon(user.getCon() + 1);
+		user.setProficiencies("+2 Strength \t+1 Constitution");
+		user.setSpeed(30);
+		break;
+	case(HUMAN):
+		user.setStr(user.getStr() + 1);
+		user.setCon(user.getCon() + 1);
+		user.setDex(user.getDex() + 1);
+		user.setCha(user.getCha() + 1);
+		user.setInt(user.getInt() + 1);
+		user.setInt(user.getInt() + 1);
+		user.setProficiencies("+1 to All");
+		user.setSpeed(30);
+	case(TIEFLING):
+		user.setCha(user.getCha() + 2);
+		user.setInt(user.getInt() + 1);
+		user.setProficiencies("+2 Charisma \t+1 Intelligence");
+		user.setSpeed(30);
+	}
 }
 
 statsOrganizer::~statsOrganizer()
