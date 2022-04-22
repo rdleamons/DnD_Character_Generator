@@ -186,6 +186,7 @@ int main()
         if(rerollInput == 's')
         {
             statsOrg.reorganizeStats(user, dice);
+            statsOrg.updateRaceBonuses(user, dice);
 
             printCharSheet(user);
         }
